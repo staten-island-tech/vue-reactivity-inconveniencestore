@@ -6,7 +6,8 @@
 
 <style scoped></style>
 <!--plan:
-- make a knockoff love nikki picrew edition
+- make a silly little dress-up game
+- give 3 options of clothes for each section- make tabs within tabs?? 
 -->
 
 <!-- <script setup>
