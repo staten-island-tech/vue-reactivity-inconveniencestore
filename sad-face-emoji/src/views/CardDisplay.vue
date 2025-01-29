@@ -1,7 +1,21 @@
 <script setup>
-defineProps(['id'])
+defineProps(['id'], ['src'])
 </script>
 
 <template>
-  <h4>{{ id }}</h4>
+  <div class="item-holder">
+    <h4>{{ id }}</h4>
+    <img src="{{ src }}" alt="" />
+  </div>
 </template>
+
+<style scoped>
+img {
+  height: 10rem;
+  width: 10rem;
+}
+.item-holder {
+  height: 12rem;
+  width: 11.5rem;
+}
+</style>
