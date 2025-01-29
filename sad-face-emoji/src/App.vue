@@ -1,7 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
 import TitleItem from './components/TitleItem.vue'
 import AvatarDisplay from './components/AvatarDisplay.vue'
+import AvatarSelector from './components/AvatarSelector.vue'
 </script>
 
 <template>
@@ -11,15 +11,13 @@ import AvatarDisplay from './components/AvatarDisplay.vue'
   <div>
     <AvatarDisplay />
   </div>
-  <nav>
-    <!-- <RouterLink to="/">Home</RouterLink> -->
-    <RouterLink to="/face">face</RouterLink>
-    <RouterLink to="/eyes">eyes</RouterLink>
-    <RouterLink to="/clothes">clothes</RouterLink>
-    <RouterLink to="/hair">hair</RouterLink>
-    <RouterLink to="/accessories">accessories</RouterLink>
-  </nav>
-  <RouterView />
+  <AvatarSelector />
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

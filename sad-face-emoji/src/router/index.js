@@ -6,12 +6,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'face',
       component: HomeView,
     },
     {
-      path: '/',
-      name: 'home',
+      path: '/hair',
+      name: 'hair',
       component: HomeView,
     },
     {
