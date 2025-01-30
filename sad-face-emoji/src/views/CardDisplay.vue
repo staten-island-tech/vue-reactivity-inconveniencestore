@@ -6,6 +6,7 @@ defineProps(['id', 'src'])
   <div class="item-holder">
     <h4>{{ id }}</h4>
     <img :src="src" alt="" />
+    <input type="checkbox" />
   </div>
 </template>
 
@@ -19,6 +20,6 @@ img {
   height: 12rem;
   width: 11.5rem;
   margin: 1rem;
-  background-color: rebeccapurple;
+  background-color: rgb(123, 255, 0);
 }
 </style>
