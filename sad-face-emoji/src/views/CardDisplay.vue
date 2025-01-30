@@ -1,11 +1,11 @@
 <script setup>
-defineProps(['id'], ['src'])
+defineProps(['id', 'src'])
 </script>
 
 <template>
   <div class="item-holder">
     <h4>{{ id }}</h4>
-    <img src="{{ src }}" alt="" />
+    <img :src="src" alt="" />
   </div>
 </template>
 
@@ -13,9 +13,12 @@ defineProps(['id'], ['src'])
 img {
   height: 10rem;
   width: 10rem;
+  object-fit: contain;
 }
 .item-holder {
   height: 12rem;
   width: 11.5rem;
+  margin: 1rem;
+  background-color: rebeccapurple;
 }
 </style>
