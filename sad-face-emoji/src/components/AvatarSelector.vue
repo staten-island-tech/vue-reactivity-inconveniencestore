@@ -2,15 +2,16 @@
   <div>
     <nav>
       <button @click="currentSection = 'hair'">Hair</button>
-      <button @click="currentSection = 'eyes'">Eyes</button>
+      <button @click="$emit('toggle-checkbox')'">Eyes</button>
     </nav>
 
     <div v-if="currentSection === 'hair'">
       <CardDisplay
-        v-for="hair in hairData"
+        v-for="hair in data"
         :key="hair.id"
         :id="hair.id"
         :src="hair.src"
+        :selected="hair.selected"
       ></CardDisplay>
     </div>
     <div v-else-if="currentSection === 'eyes'">
@@ -25,20 +26,13 @@
 <script setup>
 import { ref } from 'vue'
 import CardDisplay from '../views/CardDisplay.vue'
+import data from '../data.js'
+
+methods: {
+  toggleCheckbox() {
+    this.$emit('toggle-checkbox')
+  }
+}
 
 const currentSection = ref('hair')
-const hairData = ref([
-  {
-    id: 1,
-    src: 'https://i1.wp.com/www.roeselienraimond.com/wp-content/uploads/2016/07/red_fox_portrait.jpg',
-  },
-  {
-    id: 2,
-    src: 'https://i.pinimg.com/736x/d2/eb/07/d2eb07f9f09303360f7d118ccada55cc.jpg',
-  },
-  {
-    id: 3,
-    src: 'https://i1.wp.com/www.roeselienraimond.com/wp-content/uploads/2016/07/red_fox_portrait.jpg',
-  },
-])
 </script>

@@ -1,12 +1,12 @@
 <script setup>
-defineProps(['id', 'src'])
+defineProps(['id', 'src', 'selected'])
 </script>
 
 <template>
   <div class="item-holder">
     <h4>{{ id }}</h4>
     <img :src="src" alt="" />
-    <input type="checkbox" />
+    <input type="checkbox" @click="selected = true" />
   </div>
 </template>
 

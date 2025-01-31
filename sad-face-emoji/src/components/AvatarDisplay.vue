@@ -2,6 +2,8 @@
   <div></div>
 </template>
 
-<script setup></script>
+<script setup>
+//defineProps([src])
+</script>
 
 <style scoped></style>
