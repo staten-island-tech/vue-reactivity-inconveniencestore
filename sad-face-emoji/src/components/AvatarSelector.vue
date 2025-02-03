@@ -28,11 +28,5 @@ import { ref } from 'vue'
 import CardDisplay from '../views/CardDisplay.vue'
 import data from '../data.js'
 
-methods: {
-  toggleCheckbox() {
-    this.$emit('toggle-checkbox')
-  }
-}
-
 const currentSection = ref('hair')
 </script>
