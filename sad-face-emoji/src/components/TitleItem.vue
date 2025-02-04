@@ -1,7 +1,6 @@
 <template>
   <div class="header">
-    <h1>Avatar Creator</h1>
-    <h2>it's only girls lol i can't draw boys (sorry)</h2>
+    <h1>a</h1>
   </div>
 </template>
 

@@ -2,9 +2,9 @@
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['src', 'selected'])
-const emit = defineEmits('user-clicked')
+const emit = defineEmits('toggle-selected')
 const selectItem = () => {
-  emit('user-clicked', props.src)
+  emit('toggle-selected', props.src)
 }
 </script>
 
@@ -12,7 +12,7 @@ const selectItem = () => {
   <div class="item-holder">
     <h4>{{ props.src }}</h4>
     <img :src="props.src" alt="" />
-    <input type="checkbox" @click="selectItem" />
+    <input type="checkbox" :checked="props.selected" @click="selectItem" />
   </div>
 </template>
 
