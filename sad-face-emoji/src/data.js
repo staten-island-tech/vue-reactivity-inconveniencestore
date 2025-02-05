@@ -1,6 +1,6 @@
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
-const data = ref([
+const data = reactive([
   {
     src: 'https://i1.wp.com/www.roeselienraimond.com/wp-content/uploads/2016/07/red_fox_portrait.jpg',
     selected: false,

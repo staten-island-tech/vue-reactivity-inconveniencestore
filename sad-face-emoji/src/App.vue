@@ -2,6 +2,15 @@
 import TitleItem from './components/TitleItem.vue'
 import AvatarDisplay from './components/AvatarDisplay.vue'
 import AvatarSelector from './components/AvatarSelector.vue'
+import data from './data.js'
+import { ref } from 'vue'
+
+const items = ref(data)
+
+const updateAvatar = (src) => {
+  const item = items.value.find((i) => i.src === src)
+  if (item) item.selected = !item.selected
+}
 </script>
 
 <template>
@@ -9,9 +18,13 @@ import AvatarSelector from './components/AvatarSelector.vue'
     <div><TitleItem /></div>
   </header>
   <body>
-    <!-- <div>
-    <AvatarDisplay />
-  </div> -->
+    <div>
+      <AvatarDisplay
+        v-for="item in selectedItems"
+        :src="item.src"
+        @toggle-selected="updateAvatar"
+      />
+    </div>
     <AvatarSelector />
   </body>
 </template>

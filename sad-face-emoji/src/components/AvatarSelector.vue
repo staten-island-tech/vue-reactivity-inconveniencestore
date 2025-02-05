@@ -5,7 +5,7 @@
     </nav>
 
     <div>
-      <AvatarDisplay v-for="item in selectedItems" :src="item.src" />
+      <!-- <AvatarDisplay v-for="item in selectedItems" :src="item.src" /> -->
     </div>
 
     <div v-if="currentSection === 'hair'">
@@ -15,6 +15,7 @@
         :selected="hair.selected"
         @toggle-selected="toggleSelection"
       ></CardDisplay>
+      <!-- @toggle-selected listens for emit, then throws it to the function-->
     </div>
 
     <div v-else-if="currentSection === 'eyes'">
