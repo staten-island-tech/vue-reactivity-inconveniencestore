@@ -8,10 +8,12 @@ import AvatarSelector from './components/AvatarSelector.vue'
   <header>
     <div><TitleItem /></div>
   </header>
-  <div>
+  <body>
+    <!-- <div>
     <AvatarDisplay />
-  </div>
-  <AvatarSelector />
+  </div> -->
+    <AvatarSelector />
+  </body>
 </template>
 
 <style scoped>

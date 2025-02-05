@@ -5,13 +5,7 @@
     </nav>
 
     <div>
-      <CardDisplay
-        v-for="hair in selectedItems"
-        :key="hair.src"
-        :src="hair.src"
-        :selected="hair.selected"
-        @toggle-selected="toggleSelection"
-      />
+      <AvatarDisplay v-for="item in selectedItems" :src="item.src" />
     </div>
 
     <div v-if="currentSection === 'hair'">
@@ -35,6 +29,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import CardDisplay from './CardDisplay.vue'
+import AvatarDisplay from './AvatarDisplay.vue'
 import data from '../data.js'
 
 const currentSection = ref('hair')
