@@ -4,16 +4,6 @@
       <button @click="currentSection = 'hair'">Hair</button>
     </nav>
 
-    <div>
-      <CardDisplay
-        v-for="hair in selectedItems"
-        :key="hair.src"
-        :src="hair.src"
-        :selected="hair.selected"
-        @toggle-selected="toggleSelection"
-      />
-    </div>
-
     <div v-if="currentSection === 'hair'">
       <CardDisplay
         v-for="hair in data"
