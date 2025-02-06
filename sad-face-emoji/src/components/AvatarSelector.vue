@@ -2,6 +2,7 @@
   <div>
     <nav>
       <button @click="currentSection = 'hair'">Hair</button>
+      <button @click="currentSection = 'face'">Face</button>
     </nav>
 
     <div>
@@ -33,15 +34,20 @@ import CardDisplay from './CardDisplay.vue'
 import AvatarDisplay from './AvatarDisplay.vue'
 import data from '../data.js'
 
+const emit = defineEmits(['change-section'])
 const currentSection = ref('hair')
 const items = ref(data)
+
+// watch for changes in currentSection and emit event
+watch(currentSection, (newSection) => {
+  emit('change-section', newSection)
+})
 
 const toggleSelection = (src) => {
   const item = items.value.find((i) => i.src === src)
   if (item) item.selected = !item.selected
 }
 
-const selectedItems = computed(() => items.value.filter((item) => item.selected))
 //need to put items on screen
 //array of selected objects
 

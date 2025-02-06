@@ -5,7 +5,8 @@ const props = defineProps(['src'])
 const emit = defineEmits(['toggle-selected']) //why is it yellow
 
 const selectItem = () => {
-  emit('toggle-selected,', props.src)
+  emit('toggle-selected', props.src)
+  //gets the src from app.vue. emits this event
 }
 </script>
 

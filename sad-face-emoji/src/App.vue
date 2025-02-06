@@ -6,6 +6,9 @@ import data from './data.js'
 import { computed } from 'vue'
 
 // compute tracks items- understand what this means
+
+//emit what category it is currently, let this part of the code recieve what it is, and then filter based on currently selected section.
+
 const selectedItems = computed(() => data.filter((item) => item.selected))
 
 const updateAvatar = (src) => {
@@ -29,6 +32,7 @@ const updateAvatar = (src) => {
         @toggle-selected="updateAvatar"
       />
     </div>
+    <!--toggle-selected is emitted from avatardisplay-->
     <AvatarSelector />
   </body>
 </template>
