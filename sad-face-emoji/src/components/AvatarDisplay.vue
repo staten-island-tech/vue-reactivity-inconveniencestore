@@ -2,10 +2,15 @@
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['src'])
+const emit = defineEmits(['toggle-selected']) //why is it yellow
+
+const selectItem = () => {
+  emit('toggle-selected,', props.src)
+}
 </script>
 
 <template>
-  <div class="item-holder">
+  <div class="item-holder" @click="selectItem">
     <h4>{{ props.src }}</h4>
     <img :src="props.src" alt="" />
   </div>

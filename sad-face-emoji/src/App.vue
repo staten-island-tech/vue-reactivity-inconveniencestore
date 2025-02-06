@@ -3,13 +3,16 @@ import TitleItem from './components/TitleItem.vue'
 import AvatarDisplay from './components/AvatarDisplay.vue'
 import AvatarSelector from './components/AvatarSelector.vue'
 import data from './data.js'
-import { ref } from 'vue'
+import { computed } from 'vue'
 
-const items = ref(data)
+// compute tracks items- understand what this means
+const selectedItems = computed(() => data.filter((item) => item.selected))
 
 const updateAvatar = (src) => {
-  const item = items.value.find((i) => i.src === src)
-  if (item) item.selected = !item.selected
+  const item = data.find((i) => i.src === src)
+  if (item) {
+    item.selected = !item.selected
+  }
 }
 </script>
 
@@ -21,6 +24,7 @@ const updateAvatar = (src) => {
     <div>
       <AvatarDisplay
         v-for="item in selectedItems"
+        :key="item.src"
         :src="item.src"
         @toggle-selected="updateAvatar"
       />
