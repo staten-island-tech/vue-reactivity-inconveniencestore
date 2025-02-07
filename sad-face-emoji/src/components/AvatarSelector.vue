@@ -35,6 +35,7 @@ import AvatarDisplay from './AvatarDisplay.vue'
 import data from '../data.js'
 
 const emit = defineEmits(['change-section'])
+//this is for app.vue to recieve
 const currentSection = ref('hair')
 const items = ref(data)
 

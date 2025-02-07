@@ -9,13 +9,19 @@ import { computed } from 'vue'
 
 //emit what category it is currently, let this part of the code recieve what it is, and then filter based on currently selected section.
 
-const selectedItems = computed(() => data.filter((item) => item.selected))
+//figure out how to get
+const selectedSection = ref('hair')
+const selectedItems = computed(() => data[selectedSection.value].filter((item) => item.selected))
 
 const updateAvatar = (src) => {
-  const item = data.find((i) => i.src === src)
+  const item = data[selectedSection.value].find((i) => i.src === src)
   if (item) {
     item.selected = !item.selected
   }
+}
+
+const updateSection = (newSection) => {
+  selectedSection.value = newSection
 }
 </script>
 
@@ -33,7 +39,7 @@ const updateAvatar = (src) => {
       />
     </div>
     <!--toggle-selected is emitted from avatardisplay-->
-    <AvatarSelector />
+    <AvatarSelector @change-selected="updateSection" />
   </body>
 </template>
 
