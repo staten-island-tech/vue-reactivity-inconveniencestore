@@ -2,7 +2,7 @@
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['src'])
-const emit = defineEmits(['toggle-selected']) //why is it yellow
+const emit = defineEmits(['toggle-selected'])
 
 const selectItem = () => {
   emit('toggle-selected', props.src)

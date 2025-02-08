@@ -21,6 +21,12 @@ const data = reactive({
       selected: false,
     },
   ],
+  test: [
+    {
+      src: 'https://i.pinimg.com/736x/3d/30/c7/3d30c7eab56477f36e00aa869ef03d28.jpg',
+      selected: false,
+    },
+  ],
 })
 
 export default data

@@ -11,11 +11,12 @@
 
     <div v-if="currentSection === 'hair'">
       <CardDisplay
-        v-for="hair in data"
-        :src="hair.src"
-        :selected="hair.selected"
+        v-for="item in data[currentSection]"
+        :key="item.src"
+        :src="item.src"
+        :selected="item.selected"
         @toggle-selected="toggleSelection"
-      ></CardDisplay>
+      />
       <!-- @toggle-selected listens for emit, then throws it to the function-->
     </div>
 
@@ -29,15 +30,14 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import CardDisplay from './CardDisplay.vue'
-import AvatarDisplay from './AvatarDisplay.vue'
 import data from '../data.js'
 
 const emit = defineEmits(['change-section'])
 //this is for app.vue to recieve
 const currentSection = ref('hair')
-const items = ref(data)
+const items = data //data is alr reactive
 
 // watch for changes in currentSection and emit event
 watch(currentSection, (newSection) => {
@@ -45,7 +45,7 @@ watch(currentSection, (newSection) => {
 })
 
 const toggleSelection = (src) => {
-  const item = items.value.find((i) => i.src === src)
+  const item = items[currentSection.value].find((i) => i.src === src)
   if (item) item.selected = !item.selected
 }
 
