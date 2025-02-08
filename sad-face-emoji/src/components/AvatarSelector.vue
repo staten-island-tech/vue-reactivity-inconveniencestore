@@ -20,8 +20,14 @@
       <!-- @toggle-selected listens for emit, then throws it to the function-->
     </div>
 
-    <div v-else-if="currentSection === 'eyes'">
-      <h1>eyes</h1>
+    <div v-else-if="currentSection === 'face'">
+      <CardDisplay
+        v-for="item in data[currentSection]"
+        :key="item.src"
+        :src="item.src"
+        :selected="item.selected"
+        @toggle-selected="toggleSelection"
+      />
     </div>
     <div v-else>
       <h1>error</h1>
