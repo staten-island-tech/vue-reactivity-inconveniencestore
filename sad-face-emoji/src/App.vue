@@ -9,7 +9,11 @@ import { computed, ref } from 'vue'
 //emit what category it is currently, let this part of the code recieve what it is, and then filter based on currently selected section.
 
 const selectedSection = ref('hair')
-const selectedItems = computed(() => data[selectedSection.value].filter((item) => item.selected))
+const selectedItems = computed(() => {
+  return Object.values(data) // get all category arrays
+    .flat() // flatten them into a single array
+    .filter((item) => item.selected) // get only selected items
+})
 
 function updateAvatar(src) {
   const item = data[selectedSection.value].find((i) => i.src === src)
