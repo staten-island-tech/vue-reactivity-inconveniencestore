@@ -3,7 +3,7 @@ import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['src', 'selected'])
 const emit = defineEmits(['toggle-selected'])
-const selectItem = () => {
+function selectItem() {
   emit('toggle-selected', props.src)
 }
 </script>

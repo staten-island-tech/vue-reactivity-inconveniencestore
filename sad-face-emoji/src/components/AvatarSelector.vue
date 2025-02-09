@@ -50,11 +50,10 @@ watch(currentSection, (newSection) => {
   emit('change-section', newSection)
 })
 
-const toggleSelection = (src) => {
+function toggleSelection(src) {
   const item = items[currentSection.value].find((i) => i.src === src)
   if (item) item.selected = !item.selected
 }
-
 //need to put items on screen
 //array of selected objects
 

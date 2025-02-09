@@ -20,10 +20,6 @@ function updateAvatar(src) {
 function updateSection(newSection) {
   selectedSection.value = newSection
 }
-
-function consoleLogButBetter() {
-  console.log(`selected section`)
-}
 </script>
 
 <template>
