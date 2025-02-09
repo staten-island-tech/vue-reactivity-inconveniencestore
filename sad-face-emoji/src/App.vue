@@ -11,17 +11,18 @@ import { computed, ref } from 'vue'
 const selectedSection = ref('hair')
 const selectedItems = computed(() => data[selectedSection.value].filter((item) => item.selected))
 
-const updateAvatar = (src) => {
-  //what in the world does find i mean
+function updateAvatar(src) {
   const item = data[selectedSection.value].find((i) => i.src === src)
-  if (item) {
-    item.selected = !item.selected
-  }
+  if (item) item.selected = !item.selected
 }
 
 //recieved emitted variable = newsection
-const updateSection = (newSection) => {
+function updateSection(newSection) {
   selectedSection.value = newSection
+}
+
+function consoleLogButBetter() {
+  console.log(`selected section`)
 }
 </script>
 
@@ -30,6 +31,7 @@ const updateSection = (newSection) => {
     <div><TitleItem /></div>
   </header>
   <body>
+    <h1>{{ selectedSection }}</h1>
     <div>
       <AvatarDisplay
         v-for="item in selectedItems"
@@ -39,8 +41,9 @@ const updateSection = (newSection) => {
       />
     </div>
     <!--toggle-selected is emitted from avatardisplay-->
-    <AvatarSelector @change-selected="updateSection" />
-    <!--use v-if here to change the section of update section is called? wait its reactive i can change it in avatar selector question mark-->
+
+    <!--avatarselector-->
+    <AvatarSelector @change-section="updateSection" />
   </body>
 </template>
 
