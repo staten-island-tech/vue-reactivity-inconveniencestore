@@ -30,7 +30,6 @@ img {
   height: 10rem;
   width: 10rem;
   object-fit: contain;
-  filter: hue-rotate(props.brightness deg);
 }
 .item-holder {
   height: 12rem;
