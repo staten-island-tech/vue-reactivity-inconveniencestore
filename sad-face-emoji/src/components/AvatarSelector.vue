@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 import CardDisplay from './CardDisplay.vue'
 import data from '../data.js'
 

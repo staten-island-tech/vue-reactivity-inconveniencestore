@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue'
 
-const props = defineProps(['src', 'selected'])
+const props = defineProps(['src', 'selected', 'hue', 'brightness'])
 const emit = defineEmits(['toggle-selected'])
 function selectItem() {
   emit('toggle-selected', props.src)
@@ -11,8 +11,17 @@ function selectItem() {
 <template>
   <div class="item-holder">
     <h4>{{ props.src }}</h4>
-    <img :src="props.src" alt="" />
+    <img
+      :src="props.src"
+      alt=""
+      :style="{
+        filter: `hue-rotate(${props.hue}deg) brightness(${props.brightness}%)`,
+      }"
+    />
     <input type="checkbox" :checked="props.selected" @click="selectItem" />
+    <input type="range" min="0" max="360" class="hue-shift" :value="props.hue" />
+    <input type="range" min="0" max="360" class="brightness" :value="props.brightness" />
+    <!--probably should assosiate the hue rotate with each image and then uhhh.. emit and change the color-->
   </div>
 </template>
 
@@ -21,6 +30,7 @@ img {
   height: 10rem;
   width: 10rem;
   object-fit: contain;
+  filter: hue-rotate(props.brightness deg);
 }
 .item-holder {
   height: 12rem;
