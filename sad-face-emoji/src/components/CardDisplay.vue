@@ -30,10 +30,11 @@ img {
   height: 10rem;
   width: 10rem;
   object-fit: contain;
+  margin: 0 auto;
 }
 .item-holder {
-  height: 12rem;
-  width: 11.5rem;
+  height: 14rem;
+  width: 14rem;
   margin: 1rem;
   background-color: rgb(123, 255, 0);
 }
