@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue'
 
-const props = defineProps(['src'])
+const props = defineProps(['src', 'hue', 'brightness'])
 const emit = defineEmits(['toggle-selected'])
 
 function selectItem() {
@@ -13,7 +13,13 @@ function selectItem() {
 <template>
   <div class="item-holder" @click="selectItem">
     <h4>{{ props.src }}</h4>
-    <img :src="props.src" alt="" />
+    <img
+      :src="props.src"
+      alt=""
+      :style="{
+        filter: `hue-rotate(${props.hue}deg) brightness(${props.brightness}%)`,
+      }"
+    />
   </div>
 </template>
 

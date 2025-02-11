@@ -37,8 +37,8 @@ function updateSection(newSection) {
         v-for="item in selectedItems"
         :key="item.src"
         :src="item.src"
-        v-model:hue="item.hue"
-        v-model:brightness="item.brightness"
+        :brightness="item.brightness"
+        :hue="item.hue"
         @toggle-selected="updateAvatar"
       />
     </div>
