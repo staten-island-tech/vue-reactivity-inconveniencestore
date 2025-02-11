@@ -28,7 +28,7 @@ function updateSection(newSection) {
 
 <template>
   <header>
-    <div><TitleItem /></div>
+    <div class="title"><TitleItem /></div>
   </header>
   <body>
     <h1>{{ selectedSection }}</h1>
@@ -54,5 +54,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>
