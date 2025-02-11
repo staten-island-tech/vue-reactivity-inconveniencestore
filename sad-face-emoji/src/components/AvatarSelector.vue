@@ -15,6 +15,9 @@
         :key="item.src"
         :src="item.src"
         :selected="item.selected"
+        :brightness="item.brightness"
+        :hue="item.hue"
+        :currentSection="currentSection"
         @toggle-selected="toggleSelection"
       />
       <!-- @toggle-selected listens for emit, then throws it to the function-->

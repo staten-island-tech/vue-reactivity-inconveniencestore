@@ -10,9 +10,11 @@ function selectItem() {
 
 function updateHue(event) {
   const sectionData = data[props.currentSection]
+  console.log(props.currentSection)
+
   if (sectionData) {
     const item = sectionData.find((i) => i.src === props.src)
-    console.log('hue updated!') //ITS THIS PART OF THE CODE THAT HAS AN ISSUE... DOES SECTION DATA NOT EXIST........................................
+
     if (item) {
       item.hue = Number(event.target.value)
     }
@@ -58,7 +60,7 @@ img {
 .item-holder {
   height: 12rem;
   width: 11.5rem;
-  margin: 1rem;
+  margin: 4rem;
   background-color: rgb(123, 255, 0);
 }
 </style>
