@@ -20,12 +20,16 @@
       <!-- @toggle-selected listens for emit, then throws it to the function-->
     </div>
 
+    <!--i feel like i dont need to pass these things bc it can just read from the array right???? im not going insane rigght??-->
     <div v-else-if="currentSection === 'face'">
       <CardDisplay
         v-for="item in data[currentSection]"
         :key="item.src"
         :src="item.src"
         :selected="item.selected"
+        :brightness="item.brightness"
+        :hue="item.hue"
+        :currentSection="currentSection"
         @toggle-selected="toggleSelection"
       />
     </div>
