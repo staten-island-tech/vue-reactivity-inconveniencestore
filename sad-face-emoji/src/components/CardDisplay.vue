@@ -17,6 +17,8 @@ function updateHue(event) {
     if (item) {
       item.hue = Number(event.target.value)
     }
+  } else {
+    console.log(`hue error: ${error}`)
   }
 }
 
@@ -27,6 +29,8 @@ function updateBrightness(event) {
     if (item) {
       item.brightness = Number(event.target.value)
     }
+  } else {
+    console.log(`brightness error: ${error}`)
   }
 }
 </script>
