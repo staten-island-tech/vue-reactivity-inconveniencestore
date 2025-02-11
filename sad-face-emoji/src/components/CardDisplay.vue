@@ -3,7 +3,7 @@ import { defineProps, defineEmits } from 'vue'
 import data from '../data.js'
 
 const props = defineProps(['src', 'selected', 'hue', 'brightness', `currentSection`])
-const emit = defineEmits(['toggle-selected', 'update:hue', 'update:brightness'])
+const emit = defineEmits(['toggle-selected'])
 function selectItem() {
   emit('toggle-selected', props.src)
 }
@@ -11,10 +11,9 @@ function selectItem() {
 function updateHue(event) {
   const sectionData = data[props.currentSection]
   console.log(props.currentSection)
-
   if (sectionData) {
+    //it was because props wasn't working before that this had to be here :skull:
     const item = sectionData.find((i) => i.src === props.src)
-
     if (item) {
       item.hue = Number(event.target.value)
     }
@@ -25,7 +24,6 @@ function updateBrightness(event) {
   const sectionData = data[props.currentSection]
   if (sectionData) {
     const item = sectionData.find((i) => i.src === props.src)
-    console.log('brightness updated!')
     if (item) {
       item.brightness = Number(event.target.value)
     }
