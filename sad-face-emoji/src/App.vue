@@ -31,8 +31,7 @@ function updateSection(newSection) {
     <div class="title"><TitleItem /></div>
   </header>
   <body>
-    <h1>{{ selectedSection }}</h1>
-    <div>
+    <div class="avatar-display">
       <AvatarDisplay
         v-for="item in selectedItems"
         :key="item.src"
@@ -42,15 +41,18 @@ function updateSection(newSection) {
         @toggle-selected="updateAvatar"
       />
     </div>
+    <h1>{{ selectedSection }}</h1>
+    <AvatarSelector @change-section="updateSection" />
+
     <!--toggle-selected is emitted from avatardisplay-->
 
     <!--avatarselector-->
-    <AvatarSelector @change-section="updateSection" />
   </body>
 </template>
 
 <style scoped>
-body {
+div,
+h1 {
   display: flex;
   justify-content: center;
   align-items: center;

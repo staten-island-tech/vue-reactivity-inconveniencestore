@@ -3,15 +3,10 @@ import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['src', 'hue', 'brightness'])
 const emit = defineEmits(['toggle-selected'])
-
-function selectItem() {
-  emit('toggle-selected', props.src)
-  //gets the src from app.vue. emits this event
-}
 </script>
 
 <template>
-  <div class="item-holder" @click="selectItem">
+  <div class="item-holder">
     <h4>{{ props.src }}</h4>
     <img
       :src="props.src"

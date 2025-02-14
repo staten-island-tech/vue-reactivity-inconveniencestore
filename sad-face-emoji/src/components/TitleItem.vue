@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1>a</h1>
+    <h1>avatar creator</h1>
   </div>
 </template>
 

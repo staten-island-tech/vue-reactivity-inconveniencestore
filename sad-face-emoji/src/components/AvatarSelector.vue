@@ -9,7 +9,7 @@
       <!-- <AvatarDisplay v-for="item in selectedItems" :src="item.src" /> -->
     </div>
 
-    <div v-if="currentSection === 'hair'">
+    <div class="card-display" v-if="currentSection === 'hair'">
       <CardDisplay
         v-for="item in data[currentSection]"
         :key="item.src"
@@ -24,7 +24,7 @@
     </div>
 
     <!--i feel like i dont need to pass these things bc it can just read from the array right???? im not going insane rigght??-->
-    <div v-else-if="currentSection === 'face'">
+    <div class="card-display" v-else-if="currentSection === 'face'">
       <CardDisplay
         v-for="item in data[currentSection]"
         :key="item.src"
@@ -69,3 +69,13 @@ function toggleSelection(src) {
 //reactice can hange the array: put in seperate js file??
 //put stuff in as props
 </script>
+
+<style scoped>
+.card-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+</style>
