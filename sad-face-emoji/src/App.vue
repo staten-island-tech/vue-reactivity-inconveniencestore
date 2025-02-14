@@ -32,7 +32,7 @@ function updateSection(newSection) {
   </header>
   <body>
     <h1>{{ selectedSection }}</h1>
-    <div>
+    <div class="avatar-display">
       <AvatarDisplay
         v-for="item in selectedItems"
         :key="item.src"
@@ -50,6 +50,12 @@ function updateSection(newSection) {
 </template>
 
 <style scoped>
+/* .avatar-display {
+  width: 16rem;
+  height: 16rem;
+  position: relative;
+}
+ */
 body {
   display: flex;
   justify-content: center;
