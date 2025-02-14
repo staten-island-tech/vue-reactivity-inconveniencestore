@@ -2,12 +2,11 @@
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps(['src', 'hue', 'brightness'])
-const emit = defineEmits(['toggle-selected'])
 </script>
 
 <template>
   <div class="item-holder">
-    <h4>{{ props.src }}</h4>
+    <!--<h4>{{ props.src }}</h4>-->
     <img
       :src="props.src"
       alt=""
@@ -19,15 +18,24 @@ const emit = defineEmits(['toggle-selected'])
 </template>
 
 <style scoped>
+.item-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: absolute;
+}
 img {
-  height: 10rem;
-  width: 10rem;
-  object-fit: contain;
+  height: 15rem;
+  width: 15rem;
+  object-fit: cover;
 }
 .item-holder {
-  height: 12rem;
-  width: 11.5rem;
+  height: 15rem;
+  width: 15rem;
   margin: 1rem;
   background-color: rgb(255, 0, 0);
+  opacity: 20%;
 }
 </style>
