@@ -37,14 +37,18 @@ function updateBrightness(event) {
 
 <template>
   <div class="item-holder">
-    <img
-      :src="props.src"
-      alt=""
-      :style="{
-        filter: `hue-rotate(${props.hue}deg) brightness(${props.brightness}%)`,
-      }"
-    />
-    <input type="checkbox" :checked="props.selected" @click="selectItem" />
+    <div class="img-and-checkbox">
+      <img
+        :src="props.src"
+        alt=""
+        :style="{
+          filter: `hue-rotate(${props.hue}deg) brightness(${props.brightness}%)`,
+        }"
+      />
+      <input type="checkbox" class="checkbox" :checked="props.selected" @click="selectItem" />
+    </div>
+
+    <label for="">a</label>
     <input type="range" min="0" max="360" :value="hue" @input="updateHue" />
 
     <input type="range" min="0" max="200" :value="brightness" @input="updateBrightness" />
@@ -53,16 +57,32 @@ function updateBrightness(event) {
 </template>
 
 <style scoped>
+.img-and-checkbox {
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox {
+  position: relative;
+  bottom: 1.5rem;
+  left: 4rem;
+  background-color: white;
+
+  cursor: pointer;
+}
 img {
   height: 10rem;
   width: 10rem;
-  object-fit: contain;
+  object-fit: cover;
+
   margin: 0 auto;
   display: flex;
 }
 .item-holder {
-  height: 12rem;
-  width: 11.5rem;
+  height: 11rem;
+  width: 11rem;
   margin: 4rem;
   background-color: rgb(123, 255, 0);
 }
