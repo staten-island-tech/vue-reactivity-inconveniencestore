@@ -31,7 +31,6 @@ function updateSection(newSection) {
     <div class="title"><TitleItem /></div>
   </header>
   <body>
-    <h1>{{ selectedSection }}</h1>
     <div class="avatar-display">
       <AvatarDisplay
         v-for="item in selectedItems"
@@ -52,17 +51,25 @@ function updateSection(newSection) {
 </template>
 
 <style scoped>
-/* .avatar-display {
+* {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: lighter;
+}
+
+header {
+  margin: 0;
+}
+.avatar-display {
   width: 16rem;
   height: 16rem;
   position: relative;
 }
- */
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 </style>

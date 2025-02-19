@@ -37,7 +37,6 @@ function updateBrightness(event) {
 
 <template>
   <div class="item-holder">
-    <h4>{{ props.src }}</h4>
     <img
       :src="props.src"
       alt=""
@@ -58,6 +57,8 @@ img {
   height: 10rem;
   width: 10rem;
   object-fit: contain;
+  margin: 0 auto;
+  display: flex;
 }
 .item-holder {
   height: 12rem;
