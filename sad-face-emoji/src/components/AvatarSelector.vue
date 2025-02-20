@@ -1,8 +1,12 @@
 <template>
   <div>
     <nav>
-      <button @click="currentSection = 'hair'">Hair</button>
-      <button @click="currentSection = 'face'">Face</button>
+      <button @click="currentSection = 'eyes'">eyes</button>
+      <button @click="currentSection = 'mouth'">mouth</button>
+      <button @click="currentSection = 'frontHair'">front bangs</button>
+      <button @click="currentSection = 'sideBang'">side bangs</button>
+      <button @click="currentSection = 'backHair'">back hair</button>
+      <button @click="currentSection = 'shirt'">clothing</button>
     </nav>
     <div class="card-display">
       <CardDisplay
@@ -26,7 +30,7 @@ import data from '../data.js'
 
 const emit = defineEmits(['change-section'])
 //this is for app.vue to recieve
-const currentSection = ref('hair')
+const currentSection = ref('eyes')
 const items = data //data is alr reactive
 
 // watch for changes in currentSection and emit event
@@ -55,5 +59,9 @@ nav {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+nav {
+  margin: 2rem auto;
 }
 </style>

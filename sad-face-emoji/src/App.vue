@@ -8,7 +8,7 @@ import { computed, ref } from 'vue'
 // compute tracks items- understand what this means
 //emit what category it is currently, let this part of the code recieve what it is, and then filter based on currently selected section.
 
-const selectedSection = ref('hair')
+const selectedSection = ref('eyes')
 const selectedItems = computed(() => {
   return Object.values(data) // get all category arrays
     .flat() // flatten them into a single array
@@ -38,10 +38,11 @@ function updateSection(newSection) {
         :src="item.src"
         :brightness="item.brightness"
         :hue="item.hue"
+        :zIndex="item.zIndex"
         @toggle-selected="updateAvatar"
       />
     </div>
-    <h1>{{ selectedSection }}</h1>
+
     <AvatarSelector @change-section="updateSection" />
 
     <!--toggle-selected is emitted from avatardisplay-->

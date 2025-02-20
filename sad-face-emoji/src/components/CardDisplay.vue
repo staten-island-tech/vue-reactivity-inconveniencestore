@@ -48,9 +48,9 @@ function updateBrightness(event) {
       <input type="checkbox" class="checkbox" :checked="props.selected" @click="selectItem" />
     </div>
 
-    <label for="">a</label>
+    <label for="">hue</label>
     <input type="range" min="0" max="360" :value="hue" @input="updateHue" />
-
+    <label for="">brightness</label>
     <input type="range" min="0" max="200" :value="brightness" @input="updateBrightness" />
     <!--probably should assosiate the hue rotate with each image and then uhhh.. emit and change the color-->
   </div>
@@ -83,7 +83,7 @@ img {
 .item-holder {
   height: 11rem;
   width: 11rem;
-  margin: 4rem;
-  background-color: rgb(123, 255, 0);
+  margin: 2rem;
+  background-color: rgb(233, 233, 233);
 }
 </style>

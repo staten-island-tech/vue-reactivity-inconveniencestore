@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue'
 
-const props = defineProps(['src', 'hue', 'brightness'])
+const props = defineProps(['src', 'hue', 'brightness', 'zIndex'])
 </script>
 
 <template>
@@ -12,6 +12,7 @@ const props = defineProps(['src', 'hue', 'brightness'])
       alt=""
       :style="{
         filter: `hue-rotate(${props.hue}deg) brightness(${props.brightness}%)`,
+        zIndex: props.zIndex,
       }"
     />
   </div>
@@ -35,7 +36,5 @@ img {
   height: 15rem;
   width: 15rem;
   margin: 1rem;
-  background-color: rgb(255, 0, 0);
-  opacity: 20%;
 }
 </style>
