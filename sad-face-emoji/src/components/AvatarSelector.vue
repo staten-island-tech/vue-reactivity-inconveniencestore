@@ -1,14 +1,36 @@
 <template>
   <div>
     <nav>
-      <button @click="currentSection = 'eyes'">eyes</button>
-      <button @click="currentSection = 'mouth'">mouth</button>
-      <button @click="currentSection = 'frontHair'">front bangs</button>
-      <button @click="currentSection = 'sideBang'">side bangs</button>
-      <button @click="currentSection = 'backHair'">back hair</button>
-      <button @click="currentSection = 'shirt'">clothing</button>
+      <button
+        v-for="category in Object.keys(data)"
+        :key="category"
+        @click="currentSection = category"
+      >
+        {{ category }}
+      </button>
     </nav>
-    <div class="card-display">
+
+    <div
+      v-if="
+        currentSection === 'frontHair' ||
+        currentSection === 'sideBang' ||
+        currentSection === 'backHair'
+      "
+      class="card-display"
+    >
+      <HairCardDisplay
+        v-for="item in data[currentSection]"
+        :key="item.src"
+        :src="item.src"
+        :selected="item.selected"
+        :brightness="item.brightness"
+        :hue="item.hue"
+        :currentSection="currentSection"
+        @toggle-selected="toggleSelection"
+      />
+    </div>
+
+    <div v-else class="card-display">
       <CardDisplay
         v-for="item in data[currentSection]"
         :key="item.src"
@@ -26,6 +48,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import CardDisplay from './CardDisplay.vue'
+import HairCardDisplay from './HairCardDisplay.vue'
 import data from '../data.js'
 
 const emit = defineEmits(['change-section'])

@@ -27,27 +27,27 @@ function updateSection(newSection) {
 </script>
 
 <template>
-  <header>
-    <div class="title"><TitleItem /></div>
-  </header>
   <body>
-    <div class="avatar-display">
-      <AvatarDisplay
-        v-for="item in selectedItems"
-        :key="item.src"
-        :src="item.src"
-        :brightness="item.brightness"
-        :hue="item.hue"
-        :zIndex="item.zIndex"
-        @toggle-selected="updateAvatar"
-      />
+    <div class="body">
+      <div class="title"><TitleItem /></div>
+      <div class="avatar-display">
+        <AvatarDisplay
+          v-for="item in selectedItems"
+          :key="item.src"
+          :src="item.src"
+          :brightness="item.brightness"
+          :hue="item.hue"
+          :zIndex="item.zIndex"
+          @toggle-selected="updateAvatar"
+        />
+      </div>
+
+      <AvatarSelector @change-section="updateSection" />
+
+      <!--toggle-selected is emitted from avatardisplay-->
+
+      <!--avatarselector-->
     </div>
-
-    <AvatarSelector @change-section="updateSection" />
-
-    <!--toggle-selected is emitted from avatardisplay-->
-
-    <!--avatarselector-->
   </body>
 </template>
 
@@ -66,11 +66,12 @@ header {
   position: relative;
 }
 
-body {
+.body {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
 }
 </style>
