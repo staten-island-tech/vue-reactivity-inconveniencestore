@@ -15,7 +15,6 @@ function updateHue(event) {
     const item = sectionData.find((i) => i.src === props.src)
     if (item) {
       item.hue = Number(event.target.value)
-      console.log(`${item.hue}`)
     }
   } else {
     console.log(`hue error: ${error}`)
@@ -28,11 +27,24 @@ function updateBrightness(event) {
     const item = sectionData.find((i) => i.src === props.src)
     if (item) {
       item.brightness = Number(event.target.value)
-      console.log(`${item.brightness}`)
     }
   } else {
     console.log(`brightness error: ${error}`)
   }
+}
+
+function updateAllValues() {
+  const hairCategories = ['frontHair', 'sideBang', 'backHair']
+  hairCategories.forEach((category) => {
+    const sectionData = data[category]
+
+    const selectedItem = data[props.currentSection].find((i) => i.src === props.src)
+
+    sectionData.forEach((item) => {
+      item.hue = selectedItem.hue
+      item.brightness = selectedItem.brightness
+    })
+  })
 }
 </script>
 
@@ -55,6 +67,7 @@ function updateBrightness(event) {
       <label for="">lustre</label>
       <input type="range" min="0" max="200" :value="brightness" @input="updateBrightness" />
       <!--probably should assosiate the hue rotate with each image and then uhhh.. emit and change the color-->
+      <button @click="updateAllValues">color apply all</button>
     </div>
   </div>
 </template>

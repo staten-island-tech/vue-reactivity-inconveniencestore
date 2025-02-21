@@ -1,32 +1,171 @@
 import { reactive } from 'vue'
-
+//z-indices:
+//1: back hair
+//2: base skin
+//3: eyes, mouth
+//4: bangs
+//5: side bangs
+//6: clothes
 const data = reactive({
-  hair: [
+  base: [
     {
-      src: 'https://i1.wp.com/www.roeselienraimond.com/wp-content/uploads/2016/07/red_fox_portrait.jpg',
-      selected: false,
+      src: '/base.png',
+      selected: true,
       hue: 0,
       brightness: 100,
-    },
-    {
-      src: 'https://i.pinimg.com/736x/d2/eb/07/d2eb07f9f09303360f7d118ccada55cc.jpg',
-      selected: false,
-      hue: 0,
-      brightness: 100,
-    },
-    {
-      src: 'https://i.pinimg.com/736x/b2/33/07/b233079f97fe4191d9c3cbd511d6d820.jpg',
-      selected: false,
-      hue: 0,
-      brightness: 100,
+      zIndex: 2,
     },
   ],
-  face: [
+  frontHair: [
     {
-      src: 'https://i.pinimg.com/736x/3d/30/c7/3d30c7eab56477f36e00aa869ef03d28.jpg',
+      src: '/long front bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 4,
+    },
+    {
+      src: '/parted front bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 4,
+    },
+    {
+      src: '/straight front bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 4,
+    },
+    {
+      src: '/sailor moon front bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 4,
+    },
+  ],
+  sideBang: [
+    {
+      src: '/short side bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 5,
+    },
+    {
+      src: '/medium side bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 5,
+    },
+    {
+      src: '/long side bang.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 5,
+    },
+  ],
+  backHair: [
+    {
+      src: '/wolf cut hair.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 1,
+    },
+    {
+      src: '/long hair.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 1,
+    },
+    {
+      src: '/short hair.png',
+      selected: false,
+      hue: 60,
+      brightness: 80,
+      zIndex: 1,
+    },
+  ],
+  eyes: [
+    {
+      src: '/closed pensive eyes.png',
+      selected: false,
+      hue: 67,
+      brightness: 100,
+      zIndex: 3,
+    },
+    {
+      src: '/closed happy eyes.png',
+      selected: false,
+      hue: 67,
+      brightness: 100,
+      zIndex: 3,
+    },
+    {
+      src: '/open eyes.png',
+      selected: false,
+      hue: 67,
+      brightness: 100,
+      zIndex: 3,
+    },
+  ],
+  mouth: [
+    {
+      src: '/frown mouth.png',
       selected: false,
       hue: 0,
       brightness: 100,
+      zIndex: 3,
+    },
+    {
+      src: '/very happy mouth.png',
+      selected: false,
+      hue: 0,
+      brightness: 100,
+      zIndex: 3,
+    },
+    {
+      src: '/3 mouth.png',
+      selected: false,
+      hue: 0,
+      brightness: 100,
+      zIndex: 3,
+    },
+    {
+      src: '/bleh mouth.png',
+      selected: false,
+      hue: 0,
+      brightness: 100,
+      zIndex: 3,
+    },
+    {
+      src: '/slightly happy mouth.png',
+      selected: false,
+      hue: 0,
+      brightness: 100,
+      zIndex: 3,
+    },
+  ],
+  shirt: [
+    {
+      src: '/sweater shirt.png',
+      selected: false,
+      hue: 0,
+      brightness: 100,
+      zIndex: 6,
+    },
+    {
+      src: '/tshirt shirt.png',
+      selected: false,
+      hue: 0,
+      brightness: 100,
+      zIndex: 6,
     },
   ],
 })

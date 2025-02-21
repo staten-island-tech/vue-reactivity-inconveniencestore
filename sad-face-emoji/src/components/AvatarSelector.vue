@@ -1,31 +1,24 @@
 <template>
   <div>
     <nav>
-      <button @click="currentSection = 'hair'">Hair</button>
-      <button @click="currentSection = 'face'">Face</button>
+      <button
+        v-for="category in Object.keys(data)"
+        :key="category"
+        @click="currentSection = category"
+      >
+        {{ category }}
+      </button>
     </nav>
 
-    <div>
-      <!-- <AvatarDisplay v-for="item in selectedItems" :src="item.src" /> -->
-    </div>
-
-    <div v-if="currentSection === 'hair'">
-      <CardDisplay
-        v-for="item in data[currentSection]"
-        :key="item.src"
-        :src="item.src"
-        :selected="item.selected"
-        :brightness="item.brightness"
-        :hue="item.hue"
-        :currentSection="currentSection"
-        @toggle-selected="toggleSelection"
-      />
-      <!-- @toggle-selected listens for emit, then throws it to the function-->
-    </div>
-
-    <!--i feel like i dont need to pass these things bc it can just read from the array right???? im not going insane rigght??-->
-    <div v-else-if="currentSection === 'face'">
-      <CardDisplay
+    <div
+      v-if="
+        currentSection === 'frontHair' ||
+        currentSection === 'sideBang' ||
+        currentSection === 'backHair'
+      "
+      class="card-display"
+    >
+      <HairCardDisplay
         v-for="item in data[currentSection]"
         :key="item.src"
         :src="item.src"
@@ -36,8 +29,18 @@
         @toggle-selected="toggleSelection"
       />
     </div>
-    <div v-else>
-      <h1>error</h1>
+
+    <div v-else class="card-display">
+      <CardDisplay
+        v-for="item in data[currentSection]"
+        :key="item.src"
+        :src="item.src"
+        :selected="item.selected"
+        :brightness="item.brightness"
+        :hue="item.hue"
+        :currentSection="currentSection"
+        @toggle-selected="toggleSelection"
+      />
     </div>
   </div>
 </template>
@@ -45,11 +48,12 @@
 <script setup>
 import { ref, watch } from 'vue'
 import CardDisplay from './CardDisplay.vue'
+import HairCardDisplay from './HairCardDisplay.vue'
 import data from '../data.js'
 
 const emit = defineEmits(['change-section'])
 //this is for app.vue to recieve
-const currentSection = ref('hair')
+const currentSection = ref('eyes')
 const items = data //data is alr reactive
 
 // watch for changes in currentSection and emit event
@@ -69,3 +73,18 @@ function toggleSelection(src) {
 //reactice can hange the array: put in seperate js file??
 //put stuff in as props
 </script>
+
+<style scoped>
+.card-display,
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+nav {
+  margin: 2rem auto;
+}
+</style>
